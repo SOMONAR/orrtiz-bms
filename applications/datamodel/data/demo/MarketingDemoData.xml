@@ -37,6 +37,26 @@ under the License.
     <SecurityGroupPermission fromDate="2001-05-13 12:00:00.0" groupId="VIEWADMIN" permissionId="SFA_VIEW"/>
     <SecurityGroupPermission fromDate="2001-05-13 12:00:00.0" groupId="BIZADMIN" permissionId="SFA_ADMIN"/>
 
+    <SecurityGroup groupId="MARKETINGADMIN" description="Marketing Admin, has all permissions in the Marketing plugin" groupName="Marketing Admin"/>
+    <SecurityGroupPermission groupId="MARKETINGADMIN" permissionId="MARKETING_ADMIN" fromDate="2001-05-13 12:00:00.0"/>
+    <SecurityGroupPermission groupId="MARKETINGADMIN" permissionId="OFBTOOLS_VIEW" fromDate="2001-05-13 12:00:00.0" />
+
+    <SecurityGroup groupId="MARKETINGVIEW" description="Marketing View, has view permissions in the Marketing plugin" groupName="Marketing Admin"/>
+    <SecurityGroupPermission groupId="MARKETINGVIEW" permissionId="MARKETING_VIEW" fromDate="2001-05-13 12:00:00.0"/>
+    <SecurityGroupPermission groupId="MARKETINGVIEW" permissionId="OFBTOOLS_VIEW" fromDate="2001-05-13 12:00:00.0" />
+
+    <!-- UserLoginSecurityGroup groupId="MARKETING_ADMIN" -->
+    <UserLoginSecurityGroup groupId="MARKETINGADMIN" userLoginId="employee17" fromDate="2000-01-01 00:00:00.0"/>
+
+    <!-- UserLoginSecurityGroup groupId="MARKETING_VIEW" -->
+    <UserLoginSecurityGroup groupId="MARKETINGVIEW" userLoginId="employee18" fromDate="2000-01-01 00:00:00.0"/>
+    
+    <UserLoginSecurityGroup groupId="CRM_ADMIN" userLoginId="employee29" fromDate="2000-01-01 00:00:00.0"/>
+    <UserLoginSecurityGroup groupId="CRM_AUTHORS" userLoginId="employee32" fromDate="2000-01-01 00:00:00.0"/>
+    <UserLoginSecurityGroup groupId="CRM_AUTHORS" userLoginId="employee33" fromDate="2000-01-01 00:00:00.0"/>
+    <UserLoginSecurityGroup groupId="CRM_VIEWERS" userLoginId="employee30" fromDate="2000-01-01 00:00:00.0"/>
+    <UserLoginSecurityGroup groupId="CRM_VIEWERS" userLoginId="employee31" fromDate="2000-01-01 00:00:00.0"/>
+    
     <!-- SFA System Property Data -->
     <SystemProperty systemResourceId="sfa" systemPropertyId="save.outgoing.directory" description="If the save.outgoing.directory is specified the file will be saved there, else it will be saved under OFBIZ_HOME"/>
 
@@ -68,9 +88,6 @@ under the License.
     <PartyRole partyId="DemoCustomer2" roleTypeId="CONTACT"/>
     <PartyStatus partyId="DemoCustomer2" statusId="PARTY_ENABLED" statusDate="2001-01-01 12:00:00.0"/>
     <PartyRelationship partyIdFrom="DemoCustCompany" roleTypeIdFrom="ACCOUNT" partyIdTo="DemoCustomer2" roleTypeIdTo="CONTACT" fromDate="2000-01-01 00:00:00.000" partyRelationshipTypeId="EMPLOYMENT"/>
-    <Party partyId="DemoCustomer3" statusId="PARTY_ENABLED"/>
-    <PartyRole partyId="DemoCustomer3" roleTypeId="CONTACT"/>
-    <PartyStatus partyId="DemoCustomer3" statusId="PARTY_ENABLED" statusDate="2001-01-01 12:00:00.0"/>
     <PartyRelationship partyIdFrom="DemoCustCompany" roleTypeIdFrom="ACCOUNT" partyIdTo="DemoCustomer3" roleTypeIdTo="CONTACT" fromDate="2000-01-01 00:00:00.000" partyRelationshipTypeId="EMPLOYMENT"/>
 
     <!-- Demo Lead Owners -->
@@ -198,9 +215,9 @@ under the License.
         verifyEmailFrom="ofbiztest@example.com" verifyEmailScreen="component://ecommerce/widget/EmailContactListScreens.xml#ContactListVerifyEmail"
         verifyEmailSubject="Subscription Verify Email" verifyEmailWebSiteId="WebStore"/>
 
-    <ContactListParty contactListId="9000" partyId="DemoCustCompany" preferredContactMechId="9021" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
-    <ContactListParty contactListId="9000" partyId="DemoCustAgent" preferredContactMechId="9023" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
-    <ContactListParty contactListId="9000" partyId="DemoCustomer" preferredContactMechId="9026" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
+    <ContactListParty contactListId="9000" partyId="DemoCustCompany" preferredContactMechId="CUSTOMER_EMAIL" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
+    <ContactListParty contactListId="9000" partyId="DemoCustAgent" preferredContactMechId="CUSTOMER_EMAIL" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
+    <ContactListParty contactListId="9000" partyId="DemoCustomer" preferredContactMechId="CUSTOMER_EMAIL" statusId="CLPT_ACCEPTED" fromDate="2001-05-13 00:00:00"/>
 
     <!-- some sample affiliate and tracking codes for marketing campaigns -->
     <MarketingCampaign statusId="MKTG_CAMP_INPROGRESS" marketingCampaignId="9001" campaignName="Pay Per Click Advertising"/>
